@@ -1,0 +1,68 @@
+﻿@model ViewModels.AddUsser
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>AddUsser</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="button" value="Create" onclick="SaveUser()" class="btn btn-default" />*@
+                <a class="btn btn-primary" onclick="SaveUser()">ذخیره </a>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <table id="tlb">
+        <tr>
+            <th>UserName</th>
+            <th>Password</th>
+        </tr>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<script>
+    function SaveUser() {
+        var us = $('#UserName').val();
+        var pa = $('#Password').val();
+        $.ajax({
+            type: "POST",
+            url: "/Ajax/AddUsser",
+            data: JSON.stringify({ UserName: us, Password: pa }),
+            contentType: "application/json",
+
+            success: function (result) {
+                $("#tlb").append(
+                    "<tr><td>" + result.UserName + "</td><td>"
+                    + result.Password + "</td></tr>"
+                    );
+                $('#UserName').val("");
+                $('#Password').val("");
+            }
+
+        })
+    }
+</script>

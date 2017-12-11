@@ -1,0 +1,151 @@
+﻿@model IEnumerable<DataLayer.Task>
+<br/>
+<br/>
+@{ 
+    var usserId = Session["usserId"];
+}
+<div class="btn btn-default">
+    @Html.ActionLink("Create New", "Create")
+</div>
+<hr />
+<div id="draggablePanelList2" class="">
+  
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+
+
+            <div class="details @(item.StateId==1 ? "panel panel-info" : "panel panel-primary")">
+                <div class="panel-heading">@Html.DisplayFor(modelItem => item.TaskTitle)</div>
+                <div class="panel-body">
+                    <table>
+                        <tr>
+                            <td>
+                                Date:
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                priority
+                            </td>
+                            <td>
+
+                               @if (item.priority != 2000)
+                               {
+                                @Html.DisplayFor(modelItem => item.priority)
+                               }
+                               else
+                               {
+                                   @TempData["priority"]
+                               }
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.State.Name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Create By
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.UserName)
+                            </td>
+                        </tr>
+                        @if (usserId == null)
+                        {
+                            <tr>
+                                <td></td>
+                            </tr>
+                        }
+                        else if (usserId!=null && item.User.ID==(int) usserId)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+
+                        else
+                        {
+                            <tr><td>
+                                Not ur task
+                            </td></tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="clear"></div>
+
+
+        <script type="text/javascript">
+            $('tbody').sortable();
+
+
+            $('table #ggg').each(function () {
+                var x = $(this).html();
+                var c = $("span#ggg").html();
+                if (c = 0) {
+                    alert(25);
+                }
+            });
+         
+
+            jQuery(function ($) {
+                var panelList = $('#draggablePanelList');
+
+                panelList.sortable({
+                    // Only make the .panel-heading child elements support dragging.
+                    // Omit this to make then entire <li>...</li> draggable.
+                    handle: '.panel-heading',
+                    update: function () {
+                        $('.panel', panelList).each(function (index, elem) {
+                            var $listItem = $(elem),
+                                newIndex = $listItem.index();
+
+                            // Persist the new indices.
+                        });
+                    }
+                });
+            });
+
+            jQuery(function ($) {
+                var panelList2 = $('#draggablePanelList2');
+
+                panelList2.sortable({
+                    // Only make the .panel-heading child elements support dragging.
+                    // Omit this to make then entire <li>...</li> draggable.
+                    handle: '.panel-heading',
+                    update: function () {
+                        $('.panel', panelList2).each(function (index, elem) {
+                            var $listItem = $(elem),
+                                newIndex = $listItem.index();
+
+                            // Persist the new indices.
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+
+<style>
+     #draggablePanelList2 .panel-heading {
+        cursor: move;
+    }
+</style>

@@ -1,0 +1,12 @@
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\DataLayer.dll
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\DataLayer.pdb
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\EntityFramework.dll
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\ViewModels.dll
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\ViewModels.pdb
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\EntityFramework.xml
+D:\Projects\SystemManagement\systemMangement\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\SystemManagement\systemMangement\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Projects\SystemManagement\systemMangement\DataLayer\obj\Debug\DataLayer.dll
+D:\Projects\SystemManagement\systemMangement\DataLayer\obj\Debug\DataLayer.pdb

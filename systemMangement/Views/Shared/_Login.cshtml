@@ -1,0 +1,11 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+    <li><a href="/UserPanel"><i class="fa fa-user"></i> <label> Welcome @User.Identity.Name!</label> </a></li>
+    <li><a href="/Account/LogOff"><i class="fa fa-sign-out"></i> <label>Logout</label> </a></li>
+}
+else
+{
+    <li><a href="/Account/Login"><i class="fa fa-user"></i> <label>Login</label> </a></li>
+
+}s

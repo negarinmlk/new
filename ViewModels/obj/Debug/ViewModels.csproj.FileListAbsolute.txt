@@ -1,0 +1,5 @@
+D:\Projects\SystemManagement\systemMangement\ViewModels\bin\Debug\ViewModels.dll
+D:\Projects\SystemManagement\systemMangement\ViewModels\bin\Debug\ViewModels.pdb
+D:\Projects\SystemManagement\systemMangement\ViewModels\obj\Debug\ViewModels.csprojResolveAssemblyReference.cache
+D:\Projects\SystemManagement\systemMangement\ViewModels\obj\Debug\ViewModels.dll
+D:\Projects\SystemManagement\systemMangement\ViewModels\obj\Debug\ViewModels.pdb
